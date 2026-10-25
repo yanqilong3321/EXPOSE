@@ -12,9 +12,9 @@ import json
 from pathlib import Path
 import numpy as np
 import torch
-from expose import evidence
-from expose.protocol import ROOT,configure,load_data,prepare,split,kernel_for
-from expose.training import fit
+from code import evidence
+from code.protocol import ROOT,configure,load_data,prepare,split,kernel_for
+from code.training import fit
 
 
 def main():

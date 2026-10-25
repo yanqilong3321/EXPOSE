@@ -1,5 +1,5 @@
 """DnD-Net architecture, preserved for the paired baseline.
-Source: https://github.com/kaize0409/DND-NET (see THIRD_PARTY_NOTICES.md).
+Source: https://github.com/kaize0409/DND-NET. Original rights remain with the authors.
 """
 import math
 import torch

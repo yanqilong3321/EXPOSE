@@ -1,4 +1,5 @@
-"""DnD-Net protocol/propagation/loss helpers; see THIRD_PARTY_NOTICES.md.
+"""DnD-Net protocol/propagation/loss helpers.
+Source: https://github.com/kaize0409/DND-NET. Original rights remain with the authors.
 Functions are extracted without semantic edits from the released implementation.
 """
 import random

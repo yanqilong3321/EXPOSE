@@ -18,7 +18,7 @@ For PubMed and Coauthor-CS, a GPU with at least 24 GB memory and 32 GB system RA
 ## Files and datasets
 
 ```text
-expose/             Model, preprocessing and training code
+code/               Model, preprocessing and training code
 data/               Cora-ML, CiteSeer, PubMed and Coauthor-CS
 configs/table5.json Hyperparameters for each dataset and noise setting
 run.py              Training entry point
@@ -66,16 +66,7 @@ Add `--method dnd` for DnD-Net, or `--method both` for both methods:
 CUDA_VISIBLE_DEVICES=0 python run.py --method both
 ```
 
-Summarize completed 20-seed runs:
-
-```bash
-python aggregate.py --results outputs/table5 --out outputs/summary --require-all
-```
-
-Omit `--require-all` to summarize a subset of settings; each still requires 20 seeds. New results go to `outputs/`, and preprocessing is cached in `.cache/`. Completed runs are skipped. Use `--out` and `--cache` to change these directories; use separate caches for concurrent GPU jobs.
+New results go to `outputs/`, and preprocessing is cached in `.cache/`. Completed runs are skipped. Use `--out` and `--cache` to change these directories; use separate caches for concurrent GPU jobs.
 
 Training uses up to 200 epochs and validation-based checkpoint selection. Fresh GPU preprocessing can cause numerical differences from the original cached runs, so per-seed results need not be identical. PubMed DnD-Net parameters were reconstructed using validation data, not an official released configuration.
 
-## Acknowledgments
-
-The backbone, preprocessing, split/noise helpers and neighborhood consistency code build on [DnD-Net](https://github.com/kaize0409/DND-NET), *Divide and Denoise: Empowering Simple Models for Robust Semi-Supervised Node Classification against Label Noise* (KDD 2024). Cora-ML and CiteSeer use its processed graphs; PubMed and Coauthor-CS use the [PyTorch Geometric datasets](https://pytorch-geometric.readthedocs.io/en/2.6.1/modules/datasets.html). Third-party code and data retain their original rights and applicable terms; this repository does not relicense them.
